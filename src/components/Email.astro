@@ -1,0 +1,153 @@
+<section class="contact-form">
+  <div class="container row">
+    <div class="form-wrapper flex js column">
+      <h2>Kontaktuj się z nami</h2>
+      <form action="mailto:informacja@axlepro.com" method="post" enctype="text/plain">
+        <div class="form-group">
+          <label for="name">Imię i nazwisko</label>
+          <input type="text" id="name" name="name" placeholder="Wpisz swoje imię i nazwisko" required>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="Wpisz swój e-mail" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Wiadomość</label>
+          <textarea id="message" name="message" placeholder="Napisz swoją wiadomość" rows="5" required></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="submit-btn">Wyślij wiadomość</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+.flex {
+  display: flex;
+}
+
+.contact-form {
+  padding: 50px 0;
+  background-color: #f5f5f5; // Fondo gris claro para contraste
+
+  h2 {
+    color: #1e1d1d;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+
+    .form-wrapper {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      form {
+        width: 100%;
+        max-width: 600px; // Limita el ancho del formulario
+
+        .form-group {
+          margin-bottom: 20px;
+
+          label {
+            display: block;
+            font-size: 1.6rem;
+            color: #1e1d1d;
+            margin-bottom: 8px;
+          }
+
+          input,
+          textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.6rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+
+            &:focus {
+              border-color: #e60000; // Borde rojo al enfocar
+            }
+          }
+
+          textarea {
+            resize: vertical; // Permitir redimensionar solo verticalmente
+          }
+        }
+
+        .form-submit {
+          display: flex;
+          justify-content: center; // Centra el botón horizontalmente
+          margin-top: 30px; // Espacio encima del botón
+
+          .submit-btn {
+            background-color: #e60000; // Botón rojo
+            color: #fff;
+            font-size: 1.8rem;
+            padding: 14px 30px; // Padding uniforme
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: auto;
+            min-width: 200px; // Tamaño mínimo
+            display: flex; // Usamos flex para centrar el texto
+            align-items: center; // Centra verticalmente
+            justify-content: center; // Centra horizontalmente
+            height: 50px; // Altura fija para consistencia
+
+            &:hover {
+              background-color: #cc0000; // Rojo más oscuro al pasar el ratón
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 30px 0;
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .form-wrapper {
+      padding: 0 10px;
+
+      form {
+        .form-group {
+          label {
+            font-size: 1.4rem;
+          }
+
+          input,
+          textarea {
+            font-size: 1.4rem;
+            padding: 10px;
+          }
+        }
+
+        .form-submit {
+          margin-top: 20px;
+
+          .submit-btn {
+            font-size: 1.6rem;
+            padding: 12px 20px;
+            min-width: 100%; // Ocupa todo el ancho en móviles
+            height: 45px; // Altura ajustada para móviles
+          }
+        }
+      }
+    }
+  }
+}
+</style>

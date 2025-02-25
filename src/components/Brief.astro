@@ -1,69 +1,212 @@
 ---
-import ejes from '../assets/eje.jpg'
-import suspen from '../assets/suspen.jpeg'
+import ejes from "../assets/eje.jpg";
+import suspen from "../assets/suspen.jpeg";
+// Agrega más imágenes según necesites
+import eje2 from "../assets/eje2.jpg";
+import eje3 from "../assets/eje3.jpg";
+import suspen2 from "../assets/suspen2.jpg";
+import suspen3 from "../assets/suspen3.jpg";
+
+// Arrays de imágenes para los carruseles
+const ejesImages = [ejes, eje2, eje3];
+const suspenImages = [suspen, suspen2, suspen3];
 ---
 
 <section class="product-brief" id="features">
   <div class="container">
-    <!-- Feature Two -->
+    <!-- Carrusel Osie -->
     <div class="row product-brief-items">
       <div class="brief-media center one-half column">
-        <img src={ejes} class="md-width">
+        <div class="carousel">
+          <div class="carousel-inner">
+            {
+              ejesImages.map((image, index) => (
+                <div class={`carousel-item ${index === 0 ? "active" : ""}`}>
+                  <img src={image} class="md-width" alt={`Eje ${index + 1}`} />
+                </div>
+              ))
+            }
+          </div>
+          <button class="carousel-control prev">‹</button>
+          <button class="carousel-control next">›</button>
+        </div>
       </div>
       <div class="brief-tab one-half column">
         <h3 class="h2-title">Osie</h3>
-        <p class="m-paragraph m-margin">Oferujemy szeroki wybór osi do ciężarówek, które są niezawodne, trwałe i dostosowane do różnych potrzeb transportowych.</p>
+        <p class="m-paragraph m-margin">
+          Oferujemy szeroki wybór osi do ciężarówek, które są niezawodne, trwałe
+          i dostosowane do różnych potrzeb transportowych.
+        </p>
       </div>
     </div>
 
-    <!-- Feature One -->
+    <!-- Carrusel Zawieszenia -->
     <div class="row product-brief-items">
       <div class="brief-tab one-half column">
         <h3 class="h2-title">Zawieszenia</h3>
-        <p class="m-paragraph m-margin">Nasze zawieszenia gwarantują płynną i bezpieczną jazdę, niezależnie od obciążenia czy warunków drogowych.</p>
+        <p class="m-paragraph m-margin">
+          Nasze zawieszenia gwarantują płynną i bezpieczną jazdę, niezależnie od
+          obciążenia czy warunków drogowych.
+        </p>
       </div>
       <div class="brief-media center one-half column">
-        <img src={suspen} class="md-width">
+        <div class="carousel">
+          <div class="carousel-inner">
+            {
+              suspenImages.map((image, index) => (
+                <div class={`carousel-item ${index === 0 ? "active" : ""}`}>
+                  <img
+                    src={image}
+                    class="md-width"
+                    alt={`Zawieszenie ${index + 1}`}
+                  />
+                </div>
+              ))
+            }
+          </div>
+          <button class="carousel-control prev">‹</button>
+          <button class="carousel-control next">›</button>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <style lang="scss">
-.product-brief {
-  background-color: var(--tenary);
-  padding: 20px 0;
+  .product-brief {
+    background-color: var(--tenary);
+    padding: 40px 0;
 
-  .product-brief-items {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-
-    .brief-tab {
-      padding: 10px;
-      .h2-title{
-        color:red;
-      }
-    }
-
-    .brief-media {
-      height: 340px;
-      position: relative;
-      overflow: hidden;
-      background-color: #f2f5f9;
-      padding-top: 40px;
-    }
-  }
-
-  @media (max-width: 700px) {
     .product-brief-items {
-      flex-direction: column;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
 
       .brief-tab {
-        margin-left: 0;
-        margin-bottom: 20px;
+        padding: 20px;
+        .h2-title {
+          color: red;
+          margin-bottom: 15px;
+        }
+      }
+
+      .brief-media {
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+        background-color: #f2f5f9;
+        border-radius: 8px;
+      }
+    }
+
+    .carousel {
+      position: relative;
+      height: 100%;
+      width: 100%;
+
+      &-inner {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      &-item {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+
+        &.active {
+          opacity: 1;
+          position: relative;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+
+      &-control {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 24px;
+        line-height: 1;
+        transition: background 0.3s ease;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.8);
+        }
+
+        &.prev {
+          left: 10px;
+        }
+
+        &.next {
+          right: 10px;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      padding: 20px 0;
+
+      .product-brief-items {
+        flex-direction: column;
+        margin-bottom: 30px;
+        gap: 20px;
+
+        .brief-media {
+          height: 300px;
+          width: 100%;
+          order: 2;
+        }
+
+        .brief-tab {
+          margin-bottom: 0;
+          padding: 15px;
+          text-align: center;
+        }
+      }
+
+      .carousel-control {
+        padding: 8px 12px;
+        font-size: 20px;
       }
     }
   }
-}
 </style>
+
+<script>
+  // Script básico para el funcionamiento del carrusel
+  document.querySelectorAll(".carousel").forEach((carousel) => {
+    let currentIndex = 0;
+    const items = carousel.querySelectorAll(".carousel-item");
+    const totalItems = items.length;
+
+    const showItem = (index) => {
+      items.forEach((item) => item.classList.remove("active"));
+      items[index].classList.add("active");
+    };
+
+    carousel.querySelector(".next").addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % totalItems;
+      showItem(currentIndex);
+    });
+
+    carousel.querySelector(".prev").addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+      showItem(currentIndex);
+    });
+  });
+</script>

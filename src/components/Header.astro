@@ -1,46 +1,91 @@
 ---
-import Logo from '../assets/logodark.svg'
+import Logo from "../assets/logodark.svg";
 ---
 
 <header class="nav">
-    <div class="container row">
-     <div class="nav-logo one-third column">
-         <a href="#" class="logo-link">
-             <img src={Logo} alt="Brand logo">
-         </a>
-     </div>
-    </div>
- </header>
+  <div class="nav__container">
+    <a href="#" class="nav__logo">
+      <img src={Logo} alt="Brand logo" />
+    </a>
+    <a href="#Email" class="nav__cta">Kontakt</a>
+  </div>
+</header>
 
+<style lang="scss">
+  :root {
+    --primary-red: #d00;
+    --dark-red: #d00000;
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+  }
 
- <style lang="scss">
+  .nav {
+    padding: 1rem 0;
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 
-.nav{
-    padding: 5px 0;
-    li{
-      list-style: none;
-      margin-top: 2px;
+    &__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
-    .nav-cta{
-      text-align: right;
+
+    &__logo {
+      img {
+        width: 200px;
+        height: auto;
+        transition: var(--transition);
+
+        @media (max-width: 768px) {
+          width: 160px;
+        }
+      }
     }
-    a:not(.button):not(.logo-link){
-      color: #a82222;
-      padding: 0 50px;
+
+    &__cta {
+      background-color: var(--primary-red);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
       text-decoration: none;
-    }
-    .logo-link img{
-      width: 200px;
-      margin-top: 5px;
-    }
-    @media (max-width:700px) {
-      nav{
-        display: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      font-size: 1rem;
+
+      &:hover {
+        background-color: var(--dark-red);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
       }
-      .nav-cta{
-        position: absolute;
-        right: 20px;
+
+      &:focus {
+        outline: none;
+        border-color: var(--dark-red);
+        box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
       }
     }
-  } 
- </style>
+  }
+
+  /* Estilos globales recomendados para mejor consistencia */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

@@ -1,0 +1,126 @@
+<footer id="footer">
+  <div class="container row">
+    <div class="footer-link flex js one-half column">
+      <p>Contact information:</p>
+      <div class="emails">
+        <a href="mailto:informacja@axlepro.com">informacja@axlepro.com</a>
+      </div>
+    </div>
+    <div class="footer-note flex js one-half column">
+      <div class="footer-info">
+        <p>© 2025 AxlePro Polska. All rights reserved.</p>
+        <div class="footer-links">
+          <a>Privacy Policy</a>
+          <a>Conditions of use</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  .flex {
+    display: flex;
+  }
+
+  footer {
+    padding: 30px 0;
+    background-color: #1e1d1d; // Fondo negro
+    width: 100%;
+
+    a,
+    p {
+      color: #fff; // Texto blanco
+      font-size: 1.8rem;
+      transition: color 0.3s ease; // Transición suave para hover
+    }
+
+    a:hover {
+      color: #ddd; // Cambio de color al pasar el ratón
+    }
+
+    .footer-link {
+      flex-direction: column;
+      align-items: flex-start;
+
+      p {
+        margin-bottom: 15px; // Más espacio para mejor legibilidad
+        white-space: nowrap;
+        font-weight: bold; // Resaltar el título
+      }
+
+      .emails {
+        display: flex;
+        flex-direction: column;
+        gap: 10px; // Espaciado uniforme entre correos y teléfono
+      }
+
+      a {
+        padding-right: 0;
+        text-decoration: none;
+      }
+    }
+
+    .container {
+      padding: 20px;
+      border-radius: 50px;
+      max-width: 1200px; // Ancho máximo para centrar contenido
+      margin: 0 auto; // Centrado horizontal
+
+      .footer-note {
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        width: 100%;
+
+        .footer-info {
+          text-align: right;
+
+          p {
+            margin: 0 0 10px 0; // Espacio debajo del copyright
+          }
+
+          .footer-links {
+            display: flex;
+            gap: 20px; // Espacio entre enlaces adicionales
+          }
+        }
+      }
+    }
+
+    @media (max-width: 600px) {
+      p,
+      a {
+        font-size: 1.5rem;
+      }
+
+      .flex {
+        flex-direction: column; // Apilar columnas en móviles
+        align-items: center;
+        text-align: center;
+      }
+
+      .column {
+        padding: 15px 0;
+        width: 100%; // Asegurar que ocupe todo el ancho
+      }
+
+      .footer-note {
+        align-items: center;
+
+        .footer-info {
+          text-align: center;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+      .emails {
+        align-items: center;
+      }
+    }
+  }
+</style>

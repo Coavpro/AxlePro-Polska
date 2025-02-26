@@ -1,0 +1,118 @@
+---
+
+---
+
+<section class="about-us">
+  <div class="container">
+    <div class="content">
+      <h2 class="title">About us</h2>
+      <p class="description">
+        We are a leading supplier of axle and suspension solutions for the
+        transportation industry in Poland. Year in and year out, we provide the
+        highest quality components for truck fleets, building a reputation as a
+        reliable partner in the logistics industry.
+      </p>
+      <p class="description">
+        Nasza specjalizacja obejmuje kompleksowy asortyment części zamiennych
+        oraz systemy zawieszeń dostosowane do wymagań współczesnych ciężarówek.
+        Współpracujemy z wiodącymi europejskimi producentami, gwarantując
+        produkty spełniające najwyższe standardy bezpieczeństwa i wydajności.
+      </p>
+      <p class="description">
+        Our specialties include a comprehensive range of spare parts and
+        suspension systems tailored to the requirements of modern trucks. We
+        work with leading European manufacturers, guaranteeing products that
+        meet the highest safety and performance standards.
+      </p>
+      <a href="#Email" class="cta-button">Contact us</a>
+    </div>
+    <div class="image-container">
+      <img
+        src="/src/assets/equipo.jpg"
+        alt="System zawieszenia ciężarówki"
+        class="about-image"
+        width="600"
+        height="400"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-us {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .content {
+      .title {
+        font-size: 2.9rem;
+        color: red;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      .description {
+        font-size: 1.4rem;
+        line-height: 1.6;
+        color: black;
+        margin-bottom: 1.2rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 0.8rem 2rem;
+        background-color: red;
+        color: white;
+        text-decoration: none;
+        border-radius: 0.375rem;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #c53030;
+        }
+      }
+    }
+
+    .image-container {
+      position: relative;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+      .about-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.03);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-us {
+      .container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .image-container {
+        order: -1;
+      }
+    }
+  }
+</style>

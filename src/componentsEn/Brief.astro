@@ -3,12 +3,11 @@ import ejes from "../assets/eje.jpg";
 import suspen from "../assets/suspen.jpeg";
 // Agrega más imágenes según necesites
 import eje2 from "../assets/eje2.jpg";
-import eje3 from "../assets/eje3.jpg";
 import suspen2 from "../assets/suspen2.jpg";
 import suspen3 from "../assets/suspen3.jpg";
 
 // Arrays de imágenes para los carruseles
-const ejesImages = [ejes, eje2, eje3];
+const ejesImages = [ejes, eje2];
 const suspenImages = [suspen, suspen2, suspen3];
 ---
 
@@ -22,7 +21,7 @@ const suspenImages = [suspen, suspen2, suspen3];
             {
               ejesImages.map((image, index) => (
                 <div class={`carousel-item ${index === 0 ? "active" : ""}`}>
-                  <img src={image} class="md-width" alt={`Eje ${index + 1}`} />
+                  <img src={image} class="md-width" alt={`Eje${index + 1}`} />
                 </div>
               ))
             }
